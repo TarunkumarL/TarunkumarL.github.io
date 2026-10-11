@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tarun Kumar L | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0a0e17;
+      --card-bg: rgba(16, 24, 39, 0.7);
+      --card-border: rgba(56, 189, 248, 0.15);
+      --card-border-hover: rgba(56, 189, 248, 0.45);
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.2);
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --code-font: 'Fira Code', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      padding: 2.5rem 1.25rem;
+      background-image: 
+        radial-gradient(circle at 15% 10%, rgba(56, 189, 248, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 85% 90%, rgba(99, 102, 241, 0.07) 0%, transparent 45%);
+      background-attachment: fixed;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Hero / Header */
+    header {
+      padding: 2rem 0 2.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 3rem;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-family: var(--code-font);
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: #22c55e;
+      box-shadow: 0 0 8px #22c55e;
+    }
+
+    h1 {
+      font-size: 2.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-family: var(--code-font);
+      font-size: 1.05rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .bio {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 720px;
+      margin-bottom: 1.8rem;
+    }
+
+    .action-links {
+      display: flex;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.2rem;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      font-family: var(--code-font);
+    }
+
+    .btn-primary {
+      background-color: var(--accent);
+      color: #0a0e17;
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 0 16px var(--accent-glow);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Section Styling */
+    section {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title::before {
+      content: '//';
+      color: var(--accent);
+      font-family: var(--code-font);
+    }
+
+    /* Education Card */
+    .edu-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      backdrop-filter: blur(8px);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .edu-details h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .edu-details p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .edu-meta {
+      text-align: right;
+      font-family: var(--code-font);
+      font-size: 0.88rem;
+    }
+
+    .gpa-pill {
+      display: inline-block;
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      color: #4ade80;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      margin-top: 0.4rem;
+      font-weight: 600;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-box {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .skill-box h3 {
+      font-size: 0.9rem;
+      font-family: var(--code-font);
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .tech-tag {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 0.25rem 0.55rem;
+      border-radius: 5px;
+      font-size: 0.8rem;
+      font-family: var(--code-font);
+      color: #cbd5e1;
+    }
+
+    /* Project Cards */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      backdrop-filter: blur(8px);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--card-border-hover);
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .project-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .repo-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-family: var(--code-font);
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .repo-link:hover {
+      text-decoration: underline;
+    }
+
+    .project-bullets {
+      list-style-position: inside;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .project-bullets li {
+      list-style-type: square;
+    }
+
+    .project-bullets strong {
+      color: var(--text-main);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-family: var(--code-font);
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    @media (max-width: 640px) {
+      .edu-card {
+        flex-direction: column;
+      }
+      .edu-meta {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header / Hero Section -->
+    <header>
+      <div class="status-badge">
+        <span class="status-dot"></span>
+        Seeking Software Development Internships (Graduating 2027)
+      </div>
+      <h1>Tarun Kumar L</h1>
+      <p class="subtitle">&gt; Software Developer | CSE Student</p>
+      <p class="bio">
+        Computer Science and Engineering student at Visvesvaraya Technological University (VTU) with practical project experience across Python development, machine learning, cybersecurity, and web technologies. Focused on building reliable, secure software applications.
+      </p>
+      <div class="action-links">
+        <a class="btn btn-primary" href="https://github.com/TarunkumarL" target="_blank" rel="noopener noreferrer">
+          GitHub Profile
+        </a>
+        <a class="btn btn-outline" href="https://www.linkedin.com/in/tarunkumarl25452" target="_blank" rel="noopener noreferrer">
+          LinkedIn
+        </a>
+        <a class="btn btn-outline" href="mailto:tarunkumarl2006@gmail.com">
+          Email Me
+        </a>
+      </div>
+    </header>
+
+    <!-- Education Section -->
+    <section>
+      <h2 class="section-title">Education</h2>
+      <div class="edu-card">
+        <div class="edu-details">
+          <h3>B.E. in Computer Science and Engineering</h3>
+          <p>Mysore College of Engineering and Management, Mysore</p>
+          <p>Visvesvaraya Technological University (VTU)</p>
+        </div>
+        <div class="edu-meta">
+          <div>Expected: March 2027</div>
+          <div class="gpa-pill">CGPA: 8.2 / 10.0 (No backlogs)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Skills Section -->
+    <section>
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-box">
+          <h3>Programming Languages</h3>
+          <div class="skill-tags">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">C</span>
+            <span class="tech-tag">C++</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Java</span>
+            <span class="tech-tag">SQL</span>
+          </div>
+        </div>
+
+        <div class="skill-box">
+          <h3>Web & Frameworks</h3>
+          <div class="skill-tags">
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">Flask</span>
+            <span class="tech-tag">Streamlit</span>
+          </div>
+        </div>
+
+        <div class="skill-box">
+          <h3>ML & Libraries</h3>
+          <div class="skill-tags">
+            <span class="tech-tag">scikit-learn</span>
+            <span class="tech-tag">NumPy</span>
+            <span class="tech-tag">pandas</span>
+            <span class="tech-tag">Matplotlib</span>
+            <span class="tech-tag">Pillow</span>
+          </div>
+        </div>
+
+        <div class="skill-box">
+          <h3>Database & Tools</h3>
+          <div class="skill-tags">
+            <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">Git</span>
+            <span class="tech-tag">VS Code</span>
+            <span class="tech-tag">GitHub Desktop</span>
+            <span class="tech-tag">OOP</span>
+            <span class="tech-tag">DBMS</span>
+            <span class="tech-tag">Networks</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section>
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="projects-grid">
+
+        <!-- RCAD -->
+        <div class="project-card">
+          <div class="project-top">
+            <h3 class="project-title">Intelligent Detection System for Multi-Step Cyber-Attack (RCAD)</h3>
+          </div>
+          <ul class="project-bullets">
+            <li>Developed an intrusion detection system leveraging machine learning classifiers (KNN, Decision Tree, Random Forest) on network traffic.</li>
+            <li>Trained and benchmarked models against intrusion data, achieving <strong>99.42% test accuracy</strong> using K-Nearest Neighbors.</li>
+          </ul>
+          <div class="skill-tags">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">scikit-learn</span>
+            <span class="tech-tag">pandas</span>
+            <span class="tech-tag">NumPy</span>
+            <span class="tech-tag">Cybersecurity</span>
+          </div>
+        </div>
+
+        <!-- CipherVeil -->
+        <div class="project-card">
+          <div class="project-top">
+            <h3 class="project-title">CipherVeil – Secure Message Encryption & Steganography</h3>
+            <a class="repo-link" href="https://github.com/TarunkumarL/cipherveil" target="_blank" rel="noopener noreferrer">
+              View Repository &rarr;
+            </a>
+          </div>
+          <ul class="project-bullets">
+            <li>Built an application to encrypt text payloads and conceal ciphertexts within images using Least Significant Bit (LSB) steganography.</li>
+            <li>Implemented password-based key derivation with <strong>PBKDF2-HMAC-SHA256</strong> and authenticated encryption via <strong>Fernet</strong>.</li>
+            <li>Provided extraction routines to recover and decrypt hidden ciphertext back into the original message.</li>
+          </ul>
+          <div class="skill-tags">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Streamlit</span>
+            <span class="tech-tag">Cryptography (Fernet)</span>
+            <span class="tech-tag">Pillow</span>
+            <span class="tech-tag">LSB Steganography</span>
+          </div>
+        </div>
+
+        <!-- Code Flow Visualizer -->
+        <div class="project-card">
+          <div class="project-top">
+            <h3 class="project-title">CodeFlow Visualizer</h3>
+            <a class="repo-link" href="https://github.com/TarunkumarL/Code-Flow-Visualizer-" target="_blank" rel="noopener noreferrer">
+              View Repository &rarr;
+            </a>
+          </div>
+          <ul class="project-bullets">
+            <li>Developed an interactive web tool to assist learners with understanding C/C++ program execution paths.</li>
+            <li>Implemented code input parsing, execution tracking, program output visualization, and variable-state monitoring.</li>
+            <li>Integrated Node.js and C++ execution tooling into the workflow.</li>
+          </ul>
+          <div class="skill-tags">
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">C++</span>
+            <span class="tech-tag">HTML5 / CSS3</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div>&copy; 2026 Tarun Kumar L &bull; Mysuru, Karnataka, India</div>
+      <div>
+        <a href="mailto:tarunkumarl2006@gmail.com">tarunkumarl2006@gmail.com</a> | +91 9164013873
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>
